@@ -170,7 +170,7 @@
   }
 
   .card-product {
-    @apply bg-card border border-border rounded-lg overflow-hidden group cursor-pointer;
+    @apply bg-card border border-border rounded-lg overflow-hidden cursor-pointer;
     transition: var(--transition-smooth);
   }
 
