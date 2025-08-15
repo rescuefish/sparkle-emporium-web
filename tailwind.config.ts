@@ -18,12 +18,36 @@ export default {
 			}
 		},
 		extend: {
+			fontFamily: {
+				'playfair': ['Playfair Display', 'serif'],
+				'inter': ['Inter', 'sans-serif'],
+			},
 			colors: {
 				border: 'hsl(var(--border))',
 				input: 'hsl(var(--input))',
 				ring: 'hsl(var(--ring))',
 				background: 'hsl(var(--background))',
 				foreground: 'hsl(var(--foreground))',
+				
+				// Premium Jewelry Colors
+				gold: {
+					DEFAULT: 'hsl(var(--gold))',
+					light: 'hsl(var(--gold-light))',
+					dark: 'hsl(var(--gold-dark))'
+				},
+				'rose-gold': {
+					DEFAULT: 'hsl(var(--rose-gold))',
+					light: 'hsl(var(--rose-gold-light))',
+					dark: 'hsl(var(--rose-gold-dark))'
+				},
+				champagne: {
+					DEFAULT: 'hsl(var(--champagne))',
+					dark: 'hsl(var(--champagne-dark))'
+				},
+				'luxury-black': 'hsl(var(--luxury-black))',
+				'luxury-gray': 'hsl(var(--luxury-gray))',
+				'soft-gray': 'hsl(var(--soft-gray))',
+				
 				primary: {
 					DEFAULT: 'hsl(var(--primary))',
 					foreground: 'hsl(var(--primary-foreground))'
@@ -62,6 +86,17 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				}
+			},
+			backgroundImage: {
+				'gradient-gold': 'var(--gradient-gold)',
+				'gradient-rose': 'var(--gradient-rose)',
+				'gradient-luxury': 'var(--gradient-luxury)',
+				'gradient-subtle': 'var(--gradient-subtle)',
+			},
+			boxShadow: {
+				'luxury': 'var(--shadow-luxury)',
+				'gold': 'var(--shadow-gold)',
+				'soft': 'var(--shadow-soft)',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',

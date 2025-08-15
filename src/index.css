@@ -1,42 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Premium Jewelry E-commerce Design System */
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    /* Core Brand Colors */
+    --background: 48 5% 98%;
+    --foreground: 24 9% 10%;
 
+    /* Jewelry Premium Palette */
+    --gold: 38 92% 58%;
+    --gold-light: 40 85% 70%;
+    --gold-dark: 35 80% 45%;
+    
+    --rose-gold: 15 75% 65%;
+    --rose-gold-light: 18 70% 78%;
+    --rose-gold-dark: 12 65% 52%;
+
+    --champagne: 45 45% 85%;
+    --champagne-dark: 42 35% 72%;
+
+    --luxury-black: 0 0% 8%;
+    --luxury-gray: 0 0% 20%;
+    --soft-gray: 0 0% 45%;
+
+    /* Component Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card-foreground: 24 9% 10%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 24 9% 10%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 38 92% 58%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 45 45% 85%;
+    --secondary-foreground: 24 9% 10%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 48 5% 96%;
+    --muted-foreground: 0 0% 45%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 15 75% 65%;
+    --accent-foreground: 0 0% 100%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 48 5% 92%;
+    --input: 48 5% 94%;
+    --ring: 38 92% 58%;
 
-    --radius: 0.5rem;
+    --radius: 0.75rem;
+
+    /* Premium Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(var(--gold)) 0%, hsl(var(--gold-dark)) 100%);
+    --gradient-rose: linear-gradient(135deg, hsl(var(--rose-gold-light)) 0%, hsl(var(--rose-gold)) 100%);
+    --gradient-luxury: linear-gradient(135deg, hsl(var(--luxury-black)) 0%, hsl(var(--luxury-gray)) 100%);
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--muted)) 100%);
+
+    /* Premium Shadows */
+    --shadow-luxury: 0 25px 50px -12px hsl(var(--luxury-black) / 0.15);
+    --shadow-gold: 0 10px 30px -10px hsl(var(--gold) / 0.3);
+    --shadow-soft: 0 4px 20px -4px hsl(var(--luxury-black) / 0.08);
+
+    /* Animations */
+    --transition-luxury: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +133,100 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-inter antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-playfair;
+  }
+}
+
+@layer components {
+  /* Premium Button Variants */
+  .btn-gold {
+    @apply bg-gradient-to-r from-gold to-gold-dark text-white shadow-md hover:shadow-lg;
+    transition: var(--transition-luxury);
+  }
+
+  .btn-rose {
+    @apply bg-gradient-to-r from-rose-gold-light to-rose-gold text-white shadow-md hover:shadow-lg;
+    transition: var(--transition-luxury);
+  }
+
+  .btn-luxury {
+    @apply bg-gradient-to-r from-luxury-black to-luxury-gray text-white shadow-md hover:shadow-lg;
+    transition: var(--transition-luxury);
+  }
+
+  .btn-outline-gold {
+    @apply border-2 border-gold text-gold bg-transparent hover:bg-gold hover:text-white;
+    transition: var(--transition-smooth);
+  }
+
+  /* Premium Card Variants */
+  .card-luxury {
+    @apply bg-card border border-border rounded-lg shadow-soft hover:shadow-luxury;
+    transition: var(--transition-luxury);
+  }
+
+  .card-product {
+    @apply bg-card border border-border rounded-lg overflow-hidden group cursor-pointer;
+    transition: var(--transition-smooth);
+  }
+
+  .card-product:hover {
+    @apply shadow-luxury transform-gpu scale-[1.02];
+  }
+
+  /* Premium Text Styles */
+  .text-luxury {
+    @apply text-luxury-black font-medium;
+  }
+
+  .text-gold {
+    @apply text-gold font-medium;
+  }
+
+  .text-soft {
+    @apply text-soft-gray;
+  }
+
+  /* Premium Animations */
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+
+  .hover-lift {
+    transition: var(--transition-smooth);
+  }
+
+  .hover-lift:hover {
+    @apply transform-gpu -translate-y-1 shadow-luxury;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
