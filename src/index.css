@@ -184,7 +184,8 @@
   }
 
   .text-gold {
-    @apply text-gold font-medium;
+    color: hsl(var(--gold));
+    @apply font-medium;
   }
 
   .text-soft {
